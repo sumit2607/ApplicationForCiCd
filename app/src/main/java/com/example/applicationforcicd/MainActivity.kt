@@ -11,10 +11,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.applicationforcicd.ui.theme.ApplicationForCiCdTheme
+import com.microsoft.appcenter.AppCenter
+import com.microsoft.appcenter.analytics.Analytics
+import com.microsoft.appcenter.crashes.Crashes
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             ApplicationForCiCdTheme {
                 // A surface container using the 'background' color from the theme
@@ -26,6 +31,14 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
+
+        AppCenter.start(
+            application, "274ea1cf-cd00-40b0-8105-e2f553a84ed3",
+            Analytics::class.java, Crashes::class.java
+        )
+
+
     }
 }
 
