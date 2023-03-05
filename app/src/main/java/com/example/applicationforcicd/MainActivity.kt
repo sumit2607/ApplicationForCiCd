@@ -98,7 +98,9 @@ fun MyButton() {
             onClick = {
                 // when user is clicking the button
                 // we are displaying a toast message.
-                //Toast.makeText(, "Welcome to Geeks for Geeks", Toast.LENGTH_LONG).show()
+                Analytics.trackEvent("My custom event");
+               Crashes.generateTestCrash()
+               // Toast.makeText(Context,  "Welcome to Geeks for Geeks", Toast.LENGTH_LONG).show()
             },
             // in below line we are using modifier
             // which is use to add padding to our button
